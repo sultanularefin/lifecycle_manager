@@ -9,12 +9,13 @@ import 'package:lifecycle_manager/services/background_fetch_service.dart';
 
 class LifeCycleManager extends StatefulWidget {
 
-
   final Widget child;
 
-  LifeCycleManager({key:Key,this.child}):
-        super(key:key);
+  LifeCycleManager({Key key, this.child}) : super(key: key);
 
+
+//  LifeCycleManager({key:Key,this.child}):
+//        super(key:key);
   _LifeCycleManagerState createState() => _LifeCycleManagerState();
 
 }
@@ -23,17 +24,13 @@ class _LifeCycleManagerState extends
 State<LifeCycleManager> with WidgetsBindingObserver
 {
 
-
   List<StopableService> servicesToManage = [
-
   locator<LocationService>(),
     locator<BackgroundFetchService>(),
-
   ];
   // Get all services.
 
   @override
-
   Widget build (BuildContext context){
 //    return Container(
 //      child:child,
@@ -75,7 +72,7 @@ State<LifeCycleManager> with WidgetsBindingObserver
       else{
         service.stop();
       }
-    })
+    });
     // If background.
   }
 
