@@ -9,7 +9,7 @@ class BackgroundFetchService extends StopableService{
     super.start();
 
     // start listening.
-    print('BackgroundFetchService Started $serviceStopped');
+    print('BackgroundFetchService Started:  ${!serviceStopped}');
   }
 
 
@@ -18,7 +18,7 @@ class BackgroundFetchService extends StopableService{
     super.stop();
 
     // stop listening.
-    print('BackgroundFetchService Stopped $serviceStopped');
+    print('BackgroundFetchService Stopped: $serviceStopped');
   }
 
 }

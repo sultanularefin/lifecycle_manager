@@ -25,7 +25,7 @@ State<LifeCycleManager> with WidgetsBindingObserver
 {
 
   List<StopableService> servicesToManage = [
-  locator<LocationService>(),
+    locator<LocationService>(),
     locator<BackgroundFetchService>(),
   ];
   // Get all services.
@@ -36,12 +36,15 @@ State<LifeCycleManager> with WidgetsBindingObserver
 //      child:child,
 //    )
 
+  print(" at _LifeCycleManagerState\'s build method");
+
   return widget.child;
   }
 
 
   @override
   void initState(){
+    print(" at _LifeCycleManagerState\'s init method");
     // TODO: implement initState
     super.initState();
 
@@ -50,6 +53,7 @@ State<LifeCycleManager> with WidgetsBindingObserver
 
   @override
   void dispose() {
+    print(" at _LifeCycleManagerState\'s dispose method");
     // TODO: implement dispose
     super.dispose();
     WidgetsBinding.instance.removeObserver(this);
@@ -59,17 +63,24 @@ State<LifeCycleManager> with WidgetsBindingObserver
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state){
+
+    print(" at _LifeCycleManagerState\'s didChangeAppLifecycleState method");
     super.didChangeAppLifecycleState(state);
 
     print('LifeCycleState = $state');
 
     servicesToManage.forEach((service)
     {
+
       // AppLifeCycleState
       if(state == AppLifecycleState.resumed) {
+        print('before service.start() at '
+            ' _LifeCycleManagerState\'s  didChangeAppLifecycleState method ');
         service.start();
       }
       else{
+        print('before service.stop() at '
+            ' _LifeCycleManagerState\'s  didChangeAppLifecycleState method ');
         service.stop();
       }
     });

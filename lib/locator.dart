@@ -11,6 +11,11 @@ GetIt locator = GetIt.instance;
 
 void setupLocator(){
 
+  print("At setup Locator");
+
+
+  print(" It contains: LocationService && BackgroundFetchService " );
+
   locator.registerLazySingleton(()=>LocationService());
   locator.registerLazySingleton(()=>BackgroundFetchService());
 }

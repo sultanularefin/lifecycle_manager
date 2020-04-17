@@ -17,7 +17,7 @@ abstract class StopableService {
   // tag.
   @mustCallSuper
   void start(){
-    _serviceStopped =false;
+    _serviceStopped = false;
 
   }
 }
